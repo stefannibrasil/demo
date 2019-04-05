@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @product = products(:one)
+    @product = FactoryBot.create(:ruby)
   end
 
   test "should get index" do
@@ -20,7 +20,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       post products_url, params: { product: {
         description: @product.description,
         price: @product.price,
-        title: @title}
+        title: "Programming with Ruby 2.6" }
       }
     end
 

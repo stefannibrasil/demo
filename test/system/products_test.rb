@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ProductsTest < ApplicationSystemTestCase
   setup do
-    @product = products(:one)
+    @product = FactoryBot.create(:ruby)
   end
 
   test "visiting the index" do
@@ -14,6 +14,10 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "New Product"
 
+    fill_in "product[title]", with: 'Cat nip'
+    fill_in "product[description]", with: 'Very nice to calm your cats'
+    fill_in "product[price]", with: 19.95
+
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -23,6 +27,10 @@ class ProductsTest < ApplicationSystemTestCase
   test "updating a Product" do
     visit products_url
     click_on "Edit", match: :first
+
+    fill_in "product[title]", with: 'Cat toy'
+    fill_in "product[description]", with: 'Very nice to calm your cats'
+    fill_in "product[price]", with: 29.95
 
     click_on "Update Product"
 

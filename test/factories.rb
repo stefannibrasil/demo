@@ -15,7 +15,12 @@ FactoryBot.define do
   end
 
   factory :line_item, class: LineItem do
-    ruby
-    cart
+    association :product, factory: :ruby
+    association :cart, factory: :cart
+  end
+
+  factory :item, class: LineItem do
+    association :product, factory: :ruby
+    association :cart, factory: :cart
   end
 end

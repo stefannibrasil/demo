@@ -1,12 +1,20 @@
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
+
+<% if @counter and @counter > 5 %>
+  <aside id="notice">
+    <%= "You have accessed our Catalog #{pluralize(@counter, 'time')}" %>
+  </aside>
+<% end %>
+
 <h1>Your Pragmatic Catalog</h1>
+
 <ul class="catalog">
   <% @products.each do |product| %>
     <li>
       <% if product.image.attached? %>
-        <%= image_tag product.image.variant(resize: "320x320"), :size => "130x130" %>
+        <%= link_to image_tag(product.image.variant(resize: "120x120")), line_items_path(product_id: product), remote: true, method: :post %>
       <% end %>
       <h2><%= product.title %></h2>
       <p>
@@ -14,8 +22,10 @@
       </p>
       <div class="price">
         <%= number_to_currency(product.price) %>
+        <%= button_to 'Add to Cart',
+                      line_items_path(product_id: product),
+                      remote: true %>
       </div>
-      <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
     </li>
   <% end %>
 </ul>

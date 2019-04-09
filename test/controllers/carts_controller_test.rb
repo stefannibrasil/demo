@@ -40,7 +40,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy cart" do
     product = FactoryBot.create(:ruby)
-    post line_items_url, params: { line_item: { product_id: product.id } }
+    post line_items_url, params: { product_id: product.id }
 
     assert_difference('Cart.count', -1) do
       delete cart_url(@cart)

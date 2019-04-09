@@ -8,7 +8,7 @@
       <% cache @products do %>
         <li>
           <% if product.image.attached? %>
-            <%= image_tag product.image.variant(resize: "320x320"), :size => "80x80" %>
+            <%= image_tag product.image.variant(resize: "320x320"), :size => "130x130" %>
           <% end %>
           <h2><%= product.title %></h2>
           <p>
@@ -17,6 +17,7 @@
           <div class="price">
             <%= number_to_currency(product.price) %>
           </div>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
         </li>
       <%end %>
     <% end %>

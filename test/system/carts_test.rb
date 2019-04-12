@@ -27,15 +27,6 @@ class CartsTest < ApplicationSystemTestCase
     assert_text "2 Programming with Cats 2"
   end
 
-  test "updating a Cart" do
-    visit carts_url
-    click_on "Edit", match: :first
-
-    click_on "Update Cart"
-
-    assert_text "Cart was successfully updated."
-  end
-
   test "destroying a Cart" do
     add_first_product_to_cart
 

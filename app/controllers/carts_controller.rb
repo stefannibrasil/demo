@@ -11,6 +11,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    redirect_back(fallback_location: store_index_url) if session[:cart_id] != @cart.id
   end
 
   # GET /carts/new

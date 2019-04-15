@@ -20,13 +20,14 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
       post carts_url, params: { cart: {  } }
     end
 
-    assert_redirected_to cart_url(Cart.last)
+    assert_redirected_to store_index_url
   end
 
   test "should show cart only if the cart is store in session" do
     book = FactoryBot.create(:ruby)
     post line_items_url(:product_id => book)
-    assert_redirected_to cart_url(session[:cart_id])
+
+    assert_redirected_to store_index_url
   end
 
   test "should redirect back to store if attempting to access someone else cart" do

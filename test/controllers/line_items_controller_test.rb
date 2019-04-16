@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @line_item = FactoryBot.create(:line_item)
-  end
-
   test "should get index" do
     get line_items_url
     assert_response :success
@@ -33,24 +29,17 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_match /<tr class=\\"line-item-highlight/, @response.body
   end
 
-  test "should show line_item" do
-    get line_item_url(@line_item)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_line_item_url(@line_item)
-    assert_response :success
-  end
-
   test "should update line_item" do
-    patch line_item_url(@line_item), params: { line_item: { product_id: @line_item.product_id } }
-    assert_redirected_to line_item_url(@line_item)
+    line_item = FactoryBot.create(:line_item)
+    patch line_item_url(line_item), params: { line_item: { quantity: 2 } }
+    assert_redirected_to line_item_url(line_item)
   end
 
   test "should destroy line_item" do
+    line_item = FactoryBot.create(:line_item)
+
     assert_difference('LineItem.count', -1) do
-      delete line_item_url(@line_item)
+      delete line_item_url(line_item)
     end
 
     assert_redirected_to store_index_url

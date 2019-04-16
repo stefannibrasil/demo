@@ -17,7 +17,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    post orders_url, params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
+    post line_items_url, params: { product_id: FactoryBot.create(:cat).id }
 
     get new_order_url
     assert_response :success

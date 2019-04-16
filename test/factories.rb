@@ -25,5 +25,13 @@ FactoryBot.define do
   factory :item, class: LineItem do
     association :product, factory: :cat
     association :my_cart, factory: :cart
+    association :order, factory: :order
+  end
+
+  factory :order, class: Order do
+    name { "Stefanni Brasil" }
+    address { "My cool address"}
+    email { "stefanni@org.com" }
+    pay_type { "Credit card" }
   end
 end

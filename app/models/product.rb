@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_one_attached :image
   has_many :line_items
+  has_many :orders, through: :line_items
 
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true

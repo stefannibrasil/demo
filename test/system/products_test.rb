@@ -1,49 +1,49 @@
-# require "application_system_test_case"
+require "application_system_test_case"
 
-# class ProductsTest < ApplicationSystemTestCase
-#   setup do
-#     @product = FactoryBot.create(:ruby)
-#   end
+class ProductsTest < ApplicationSystemTestCase
+  setup do
+    @product = FactoryBot.create(:ruby)
+  end
 
-#   test "visiting the index" do
-#     visit products_url
-#     assert_selector "h1", text: "Products"
-#   end
+  test "visiting the index" do
+    visit products_url
+    assert_selector "h1", text: "Products"
+  end
 
-#   test "creating a Product" do
-#     visit products_url
-#     click_on "New Product"
+  test "creating a Product" do
+    visit products_url
+    click_on "New Product"
 
-#     fill_in "product[title]", with: 'Cat nip'
-#     fill_in "product[description]", with: 'Very nice to calm your cats'
-#     fill_in "product[price]", with: 19.95
+    fill_in "product[title]", with: 'Cat nip'
+    fill_in "product[description]", with: 'Very nice to calm your cats'
+    fill_in "product[price]", with: 19.95
 
-#     click_on "Create Product"
+    click_on "Create Product"
 
-#     assert_text "Product was successfully created"
-#     click_on "Back"
-#   end
+    assert_text "Product was successfully created"
+    click_on "Back"
+  end
 
-#   test "updating a Product" do
-#     visit products_url
-#     click_on "Edit", match: :first
+  test "updating a Product" do
+    visit products_url
+    click_on "Edit", match: :first
 
-#     fill_in "product[title]", with: 'Cat toy'
-#     fill_in "product[description]", with: 'Very nice to calm your cats'
-#     fill_in "product[price]", with: 29.95
+    fill_in "product[title]", with: 'Cat toy'
+    fill_in "product[description]", with: 'Very nice to calm your cats'
+    fill_in "product[price]", with: 29.95
 
-#     click_on "Update Product"
+    click_on "Update Product"
 
-#     assert_text "Product was successfully updated"
-#     click_on "Back"
-#   end
+    assert_text "Product was successfully updated."
+    click_on "Back"
+  end
 
-#   test "destroying a Product" do
-#     visit products_url
-#     page.accept_confirm do
-#       click_on "Destroy", match: :first
-#     end
+  test "destroying a Product" do
+    visit products_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
 
-#     assert_text "Product was successfully destroyed"
-#   end
-# end
+    assert_text "Product was successfully destroyed"
+  end
+end

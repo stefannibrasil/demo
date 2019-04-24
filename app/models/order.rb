@@ -1,8 +1,6 @@
-require 'active_model/serializers/xml'
 require 'pago'
 
 class Order < ApplicationRecord
-  include ActiveModel::Serializers::Xml
   has_many :line_items, dependent: :destroy
   validates :name, :address, :email, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,

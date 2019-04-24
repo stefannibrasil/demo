@@ -34,4 +34,10 @@ FactoryBot.define do
     email { "stefanni@org.com" }
     pay_type { "Credit card" }
   end
+
+  factory :user, class: User do
+    username { 'stefannibrasil' }
+    password { '123456' }
+    password_confirmation { '123456' }
+  end
 end

@@ -12,6 +12,8 @@
  * directory. Styles in this file should be added after the last require_*
  * statement. It is generally better to create a new file per style scope.
  *
+ *= require semantic
+ *= require semantic.min
  *= require_tree .
  *= require_self
  */
@@ -42,6 +44,7 @@ header.main {
   padding: 1em 1.414em;
   text-align: center;
 }
+
 .content {
   margin: 0;
   padding: 0;

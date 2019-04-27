@@ -1,35 +1,34 @@
 <% if notice %>
-  <aside id="notice"><%= notice %></aside>
+  <div class="ui yellow message">
+    <i class="star icon"></i>
+    <aside id="notice"><%= notice %></aside>
+  </div>
 <% end %>
 
-<% if @counter and @counter > 5 %>
-  <aside id="notice">
-    <%= "You have accessed our Catalog #{pluralize(@counter, 'time')}" %>
-  </aside>
-<% end %>
+<h2 class="ui huge header">Your Pragmatic Catalog</h2>
 
-<h1>Your Pragmatic Catalog</h1>
-<% @products.each do |product| %>
-  <div class="ui card">
-    <% if product.image.attached? %>
-      <%= link_to image_tag(product.image.variant(resize: "120x120")), line_items_path(product_id: product), remote: true, method: :post, class: 'image' %>
-    <% end %>
-    <div class="content">
-      <div class="header"><%= product.title %></div>
-      <div class="description">
-        <%= sanitize(product.description) %>
-      </div>
-    </div>
-    <div class="extra content">
-      <div class="ui two buttons">
-        <div class="ui basic green button">        <%= number_to_currency(product.price) %>
-</div>
+<div class="ui items">
+  <% @products.each do |product| %>
+    <div class="item">
+      <% if product.image.attached? %>
+        <%= link_to image_tag(product.image), line_items_path(product_id: product), remote: true, method: :post, class: "ui small image" %>
+      <% end %>
+      <div class="content">
+        <p class="ui large header"><%= product.title %></p>
+        <div class="description">
+          <p><%= sanitize(product.description) %></p>
+        </div>
+        <br>
+        <p class="ui medium header"><%= number_to_currency(product.price) %></p>
+        <br>
+        <br>
         <%= button_to 'Add to Cart',
                       line_items_path(product_id: product),
                       remote: true,
-                      class: 'ui basic red button'
+                      class:" ui primary button"
                       %>
       </div>
     </div>
-  </div>
-<% end %>
+    <br>
+  <% end %>
+</div>

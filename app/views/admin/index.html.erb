@@ -1,3 +1,10 @@
+<div class="ui horizontal list">
+  <div class="active item" href="/admin">Home</div>
+  <div class="item"><%= link_to 'Orders', orders_path, class: "item" %></div>
+  <div class="item"><%= link_to 'Products', products_path %></div>
+  <div class="item"><%= link_to 'Users', users_path %></div>
+</div>
+
 <h1>Welcome</h1>
 <p>
   It's <%= Time.now %>.

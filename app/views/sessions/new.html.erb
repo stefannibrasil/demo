@@ -1,19 +1,26 @@
-<section class="depot_form">
-  <% if flash[:alert] %>
-    <aside class="notice"><%= flash[:alert] %></aside>
-  <% end %>
-  <%= form_tag do %>
-    <h2>Please Log In</h2>
-    <div class="field">
-      <%= label_tag :username, 'Username:' %>
-      <%= text_field_tag :username, params[:username] %>
+<% if flash[:alert] %>
+  <div class="ui error message">
+    <i class="close icon"></i>
+    <div class="header">
+      There were some errors with your submission
     </div>
-    <div class="field">
-      <%= label_tag :password, 'Password:' %>
-      <%= password_field_tag :password, params[:password] %>
-    </div>
-    <div class="actions">
-      <%= submit_tag "Login" %>
-    </div>
-  <% end %>
-</section>
+    <ul class="list">
+      <li><%= flash[:alert] %></li>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag(login_path, { class: 'ui form' } ) do %>
+  <h2>Please Log In</h2>
+  <div class="inline field focus">
+    <label>Username</label>
+    <%= text_field_tag :username, params[:username] %>
+  </div>
+  <div class="inline field focus">
+    <label>Password</label>
+    <%= password_field_tag :password, params[:password] %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Login", class: "ui purple button" %>
+  </div>
+<% end %>

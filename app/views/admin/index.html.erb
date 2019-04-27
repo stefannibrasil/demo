@@ -8,5 +8,5 @@
 <h1>Welcome</h1>
 <p>
   It's <%= Time.now %>.
-  We have <%= pluralize(@total_orders, "order") %>.
+  We have <%= link_to pluralize(@total_orders, "order"), orders_path %>.
 </p>

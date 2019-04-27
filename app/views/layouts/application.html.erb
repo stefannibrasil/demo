@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pragprog Books Online Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -31,18 +32,27 @@
         <% end %>
       </div>
     </div>
-    <section class="">
-      <nav class="side_nav">
-        <% if @cart %>
+    <% if notice %>
+      <div class="ui yellow message">
+        <aside id="notice"><%= notice %></aside>
+      </div>
+    <% end %>
+    <div class="row three column">
+      <div class="column">
+        <br>
+        <div class="ui right floated compact basic segment stepper">
           <div id="cart">
             <%= render_if @cart && @cart.line_items.any?, @cart %>
           </div>
-        <% end %>
-      </nav>
-      <main class='<%= controller.controller_name %>'>
-        <%= yield %>
-      </main>
-    </section>
+        </div>
+        <div class="ui left floated compact basic segment stepper">
+          <main class='<%= controller.controller_name %>'>
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+    </div>
+    
   </body>
   <script src="/assets/jquery-3.1.1.min.js" type="text/javascript"></script>
   <script src="/assets/semantic.js" type="text/javascript"></script>

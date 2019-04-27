@@ -1,0 +1,26 @@
+
+#cart {
+  width: 450px;
+
+  .table {
+    border-collapse: collapse;
+  }
+  td {
+    padding: 0.5em;
+  }
+  td.price {
+    font-weight: bold;
+  }
+  tfoot {
+    th, td.price {
+      font-weight: bold;
+      padding-top: 1em;
+    }
+    th {
+      text-align: right;
+    }
+    td.price {
+      border-top: 1px solid rgba(34,36,38,.1);
+    }
+  }
+}

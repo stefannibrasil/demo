@@ -23,8 +23,6 @@
     </div>
   <% end %>
 
-  <h2>Enter User details</h2>
-
   <div class="inline field focus">
     <%= form.label :username, 'Username:' %>
     <%= form.text_field :username, id: :user_username, size: 40 %>
@@ -39,8 +37,5 @@
     <%= form.label :password_confirmation, 'Confirm:' %>
     <%= form.password_field :password_confirmation, id: :user_password_confirmation, size: 40 %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit 'Submit', class: "ui pink button", tabindex: "0" %>
 <% end %>

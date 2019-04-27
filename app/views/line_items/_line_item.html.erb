@@ -3,7 +3,7 @@
 <% else %>
   <tr id="line-item">
 <% end %>
-  <td class="quantity"><%= line_item.quantity %></td>
+  <td ><%= line_item.quantity %></td>
   <td>
     <%= button_to decrement_line_item_url(line_item), method: :patch, remote: true do %>
       <i class="fas fa-sort-down"></i>
@@ -15,7 +15,7 @@
       <i class="far fa-trash-alt"></i>
     <% end %>
   </td>
-  <td class="price">
+  <td>
     <%= number_to_currency(line_item.total_price) %>
   </td>
 </tr>

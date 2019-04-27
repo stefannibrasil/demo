@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'about' => 'pages#about'
   get 'admin' => 'admin#index'
 
   controller :sessions do
